@@ -28,6 +28,37 @@ public class EncapsulateTheData {
 	String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
 	Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
 	
+	EncapsulateTheData(int ir, float dT, String m, Object mo) {
+		if(ir >= 0) {
+			this.itemsReceived = ir;
+		}
+		else {
+			this.itemsReceived = 0;
+		}
+		
+		if(dT >= 0.0 && dT <= 360.0) {
+			this.degreesTurned = dT;
+		}
+		else  {
+			dT = 0;
+		}
+		
+		if(!(m.equals(""))) {
+			this.nomenclature = m;
+		}
+		else {
+			this.nomenclature = " ";
+		}
+		
+		if(!(mo instanceof String)) {
+			this.memberObj = mo;
+		}
+		else {
+			this.memberObj = new Object();
+			System.out.println("err");
+		}
+		
+	}
 	public static void main(String[] args) {
 		
 	}
