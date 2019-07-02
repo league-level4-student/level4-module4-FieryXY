@@ -7,12 +7,14 @@ public abstract class Polymorph {
     protected int y;
     protected int width;
     protected int height;
+    protected boolean clickable;
     
     Polymorph(int x, int y, int width, int height){
    	 this.x = x;
    	 this.y = y;
    	 this.width = width;
    	 this.height = height;
+   	 clickable = false;
     }
     
     //Getters and Setter
@@ -44,6 +46,10 @@ public abstract class Polymorph {
     //Update Function and Abstract Method Draw
     public void update(){
    
+    }
+    
+    public void clickFunc() {
+    	
     }
     
     public abstract void draw(Graphics g);

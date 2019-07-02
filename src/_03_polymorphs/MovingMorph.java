@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class MovingMorph extends Polymorph {
 	
-	public static int moveCalls = 20;
+	public static int moveCalls = 100;
 	
 	Direction direction = Direction.LEFT;
 	int calls = 0;
@@ -27,7 +27,7 @@ public class MovingMorph extends Polymorph {
 		calls++;
 		if(calls >= moveCalls) {
 			Random r = new Random();
-			int newDirection = r.nextInt(3);
+			int newDirection = r.nextInt(4);
 			switch(newDirection) {
 			case 0:
 				direction = Direction.LEFT;
@@ -42,20 +42,41 @@ public class MovingMorph extends Polymorph {
 				direction = Direction.UP;
 				break;
 			}
+			calls = 0;
 		}
 		
 		switch(direction) {
 		case LEFT:
-			this.x--;
+			if(this.x > 0) {
+				this.x--;
+			}
+			else {
+				calls = moveCalls;
+			}
 			break;
 		case RIGHT:
-			this.x++;
+			if(this.x+this.width < PolymorphWindow.WIDTH) {
+				this.x++;
+			}
+			else {
+				calls = moveCalls;
+			}
 			break;
 		case UP:
-			this.y--;
+			if(this.y > 0) {
+				this.y--;
+			}
+			else {
+				calls = moveCalls;
+			}
 			break;
 		case DOWN:
-			this.y++;
+			if(this.y+this.height < PolymorphWindow.HEIGHT) {
+				this.y++;
+			}
+			else {
+				calls = moveCalls;
+			}
 			break;
 		}
 	}
