@@ -4,15 +4,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class CircleMorph extends Polymorph {
-	
-	int theta = 0;
+
+	int radius = 50;
 	int h;
 	int k;
-	int radius = 20;
+	double theta = 0;
 	
-	boolean right = true;
+	
 	CircleMorph(int x, int y, int width, int height) {
 		super(x, y, width, height);
+		h = this.x-radius;
+		k = this.y;
 		
 	}
 
@@ -24,8 +26,17 @@ public class CircleMorph extends Polymorph {
 	
 	@Override
 	public void update() {
+		if(theta >= 360) {
+			theta = 0;
+		}
 		
+		double tempX = Math.sin(theta)*radius+k;
+		double tempY = Math.sin(theta)*radius+h;
 		
+		this.y = (int) tempY;
+		this.x = (int) tempX;
+		System.out.println("Theta:"+theta+", X:"+this.x+", Y:"+this.y+"\n"+"--------------");
+		theta++;
 	}
 
 }

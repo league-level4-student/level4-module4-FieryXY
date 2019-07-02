@@ -41,7 +41,7 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseList
    	 morphs.add(new RedMorph(50, 150, 50, 50));
    	 morphs.add(new MovingMorph(400, 400, 50, 50));
    	 morphs.add(new MouseMorph(100, 100, 50, 50));
-   	 morphs.add(new CircleMorph(200, 200, 50, 50));
+   	 morphs.add(new CircleMorph(200, 200, 5, 5));
    	 morphs.add(new DialogMorph(300, 300, 50, 50));
    	 morphs.add(new ImageMorph(350, 350, 50, 50));
    	 
